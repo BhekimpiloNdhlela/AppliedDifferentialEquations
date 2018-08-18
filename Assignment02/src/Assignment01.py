@@ -13,13 +13,14 @@ from math import log
 import numpy as np
 
 def plot4q1a(Y, P, Q):
+    plt.subplot(121)
     plt.title('Scatter Plot of: (t+1790, P(t))')
     plt.xlabel('t + 1790')
     plt.ylabel('P(t)')
     plt.plot(Y, P, 'og', linewidth=4)
     plt.grid(True, linewidth=3)
-    plt.show()
-    
+
+    plt.subplot(122)
     plt.title('Scatter Plot of: (P(t), Q(t))')
     plt.xlabel('P(t)')
     plt.ylabel('Q(t)')
