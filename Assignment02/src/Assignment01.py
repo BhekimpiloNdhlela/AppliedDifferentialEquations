@@ -13,14 +13,13 @@ from math import log
 import numpy as np
 
 def plot4q1a(Y, P, Q):
-    plt.subplot(121)
     plt.title('Scatter Plot of: (t+1790, P(t))')
     plt.xlabel('t + 1790')
     plt.ylabel('P(t)')
     plt.plot(Y, P, 'og', linewidth=4)
     plt.grid(True, linewidth=3)
-
-    plt.subplot(122)
+    plt.show()
+    
     plt.title('Scatter Plot of: (P(t), Q(t))')
     plt.xlabel('P(t)')
     plt.ylabel('Q(t)')
@@ -49,7 +48,7 @@ def plot4q1c(Y, P, x, y):
     plt.show()
 
 def plot4q2b(x1, y1, x2, a1, b1, a2, b2):
-    plt.title('a - blnP vs. a - blnP')
+    plt.title('Q = a - bP vs. Q ~ a - blnP')
     plt.xlabel('P(t)')
     plt.ylabel('Q(t)')
     plt.plot(x1, y1, 'og', linewidth=4)
