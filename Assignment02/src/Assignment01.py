@@ -18,12 +18,14 @@ def plot4q1a(Y, P, Q):
     plt.xlabel('t + 1790')
     plt.ylabel('P(t)')
     plt.plot(Y, P, 'og', linewidth=4)
+    plt.grid(True, linewidth=3)
 
     plt.subplot(122)
     plt.title('Scatter Plot of: (P(t), Q(t))')
-    plt.xlabel('P(t)')Gompertz
+    plt.xlabel('P(t)')
     plt.ylabel('Q(t)')
     plt.plot(P[:len(Q)], Q, 'og', linewidth=4)
+    plt.grid(True, linewidth=3)
     plt.show()
 
 def plot4q1b(x, y, a, b):
@@ -33,6 +35,7 @@ def plot4q1b(x, y, a, b):
     plt.plot(x, y, 'og', linewidth=4)
     best_fit = np.array([a - b*x[i] for i in xrange(len(y))])
     plt.plot(x, best_fit, '-k', linewidth=4)
+    plt.grid(True, linewidth=3)
     plt.show()
 
 def plot4q1c(Y, P, x, y):
@@ -42,6 +45,7 @@ def plot4q1c(Y, P, x, y):
     plt.plot(Y, P, 'og', linewidth=4)
     plt.plot(x, y, '-k', linewidth=4)
     plt.xlim([1790, 2020])
+    plt.grid(True, linewidth=3)
     plt.show()
 
 def plot4q2b(x1, y1, x2, a1, b1, a2, b2):
@@ -53,7 +57,8 @@ def plot4q2b(x1, y1, x2, a1, b1, a2, b2):
     best_fit2 = np.array([a2 - b2*x2[i] for i in xrange(len(y1))])
     plt.plot(x1, best_fit1, '-k', linewidth=4, label='Q = a - bP')
     plt.plot(x1, best_fit2, '-b', linewidth=4, label='Q ~ a - blnP')
-    plt.legend(bbox_to_anchor=(.8, .3))
+    plt.legend(loc=0)
+    plt.grid(True, linewidth=3)
     plt.show()
 
 def plot4q2c(Y, P, x, y1, y2):
@@ -64,7 +69,8 @@ def plot4q2c(Y, P, x, y1, y2):
     plt.plot(x, y1, '-k', linewidth=4, label='Logistic Model')
     plt.plot(x, y2, '-b', linewidth=4, label='Gompertz Model')
     plt.xlim([1790, 2020])
-    plt.legend(bbox_to_anchor=(.8, .3))
+    plt.legend(loc=0)
+    plt.grid(True, linewidth=3)
     plt.show()
 
 def get_coef(x, y, deg):
