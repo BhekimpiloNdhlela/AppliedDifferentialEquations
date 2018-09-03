@@ -34,10 +34,10 @@ def plot_graphs(x, y, t, odeint_sol=None):
     plt.show()
 
 def plot_graph_Q1e(odeint_sol, t):
-    plt.xlabel('t = time')
+    plt.xlabel('t = time = linspace(0, 20000, 1000)')
     plt.ylabel('Prey vs. Predetor')
     plt.title('Prey vs. Predetor model (10000 as limiting Capacity for the Prey)')
-    plt.plot(t, odeint_sol[:,0], '-m', linewidth=4, label='X = Predetor')
+    plt.plot(t, odeint_sol[:,0], '-r', linewidth=4, label='X = Predetor')
     plt.plot(t, odeint_sol[:,1], '-b', linewidth=4, label='Y = Prey')
     plt.legend(loc='best')
     plt.grid(True, linewidth=3)
@@ -81,8 +81,8 @@ if __name__ == '__main__':
     estimate the behaviour of the two populations as t -> inf. Plot the result on a
     new figure.
     '''
-    T = np.linspace(0, 3, 1000)
-    f = lambda x, t: (-3*x[0] + 3*x[0]*x[1], x[1] - 2*x[1]*x[0] - 10)
+    T = np.linspace(0, 20000, 1000)
+    f = lambda x, t: (-3*x[0] + 3*x[0]*x[1], x[1] - 2*x[1]*x[0] - (1./10.)*x[1])
     x0 = [0.3, 1.0]
     odeint_sol = scipy.integrate.odeint(f, x0, T)
     plot_graph_Q1e(odeint_sol, T)

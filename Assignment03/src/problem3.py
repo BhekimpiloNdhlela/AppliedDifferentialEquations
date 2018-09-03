@@ -35,7 +35,7 @@ if __name__ == '__main__':
     plot_graphs_Q3(X, Y0)
 
     # question b.)
-    F_ana = lambda x: exp(-x)*((-expi(-1)+expi(-x))*(1+x)+(x-2)*exp(1))+1+log(x)
+    F_ana = lambda x: exp(-x)*((expi(1)-expi(x))*(1+x)+(x-2)*exp(1))+1+log(x)
     Y1 = array([F_ana(x) for x in X])
     plot_graphs_Q3(X, Y0, y1=Y1)
 
