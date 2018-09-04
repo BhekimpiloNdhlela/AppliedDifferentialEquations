@@ -82,7 +82,8 @@ if __name__ == '__main__':
     new figure.
     '''
     """
-    NOTE: the folowing code does not converge accordingly, still needs some debuginh
+    NOTE: the folowing code does not converge accordingly, still needs some
+          debuging
     """
     t = np.arange(0, 1000, 5/10.0)
     f = lambda x, t: (-3*x[0] + 3*x[0]*x[1], x[1]-2*x[1]*x[0]-(1./10.)*x[1])
