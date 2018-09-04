@@ -13,7 +13,7 @@ def eulers_method(fx, fy, T, x0, y0, h):
     x, y = np.zeros(len(T), dtype=float), np.zeros(len(T), dtype=float)
     x[0], y[0] = x0, y0
 
-    for i in xrange(1, len(T)):
+    for i in range(1, len(T)):
        x[i] = x[i-1] + h*fx(T[i], x[i-1], y[i-1])
        y[i] = y[i-1] + h*fy(T[i], x[i-1], y[i-1])
     return x, y
@@ -49,7 +49,7 @@ if __name__ == '__main__':
     fy = lambda t, x, y: y - 2*x*y
     T, h, x0, y0 = np.arange(0, 10, 1.0/100.0), 1.0/100.0, 0.3, 1.0
     X, Y = eulers_method(fx, fy, T, x0, y0, h)
-    plot_graphs(X, Y, T)
+    #plot_graphs(X, Y, T)
 
     # question 1b.)
     '''
@@ -61,7 +61,7 @@ if __name__ == '__main__':
     f = lambda x, t: (-3*x[0] + 3*x[0]*x[1], x[1] - 2*x[1]*x[0])
     x0 = [0.3, 1.0]
     odeint_sol = scipy.integrate.odeint(f, x0, T)
-    plot_graphs(X, Y, T, odeint_sol=odeint_sol)
+    #plot_graphs(X, Y, T, odeint_sol=odeint_sol)
 
     # question 1c.)
     '''
@@ -70,8 +70,8 @@ if __name__ == '__main__':
     '''
     # according to euler
     max_x_euler, min_x_euler= int(round(max(X) * 1000)), int(round(min(X) * 1000))
-    print 'MAX Predetor = ', max_x_euler, ' @ approx ', 9, ' days'
-    print 'MIN Predetor = ', min_x_euler ,' @ approx ', 7, ' days'
+    print('MAX Predetor = ', max_x_euler, ' @ approx ', 9, ' days')
+    print('MIN Predetor = ', min_x_euler ,' @ approx ', 7, ' days')
 
     # question 1e.)
     '''
@@ -81,11 +81,15 @@ if __name__ == '__main__':
     estimate the behaviour of the two populations as t -> inf. Plot the result on a
     new figure.
     '''
-    T = np.linspace(0, 20000, 1000)
-    f = lambda x, t: (-3*x[0] + 3*x[0]*x[1], x[1] - 2*x[1]*x[0] - (1./10.)*x[1])
+    """
+    NOTE: the folowing code does not converge accordingly, still needs some debuginh
+    """
+    t = np.arange(0, 1000, 5/10.0)
+    f = lambda x, t: (-3*x[0] + 3*x[0]*x[1], x[1]-2*x[1]*x[0]-(1./10.)*x[1])
     x0 = [0.3, 1.0]
-    odeint_sol = scipy.integrate.odeint(f, x0, T)
-    plot_graph_Q1e(odeint_sol, T)
+    odeint_sol = scipy.integrate.odeint(f, x0, t)
+
+    plot_graph_Q1e(odeint_sol, t)
 
 else:
     exit('USAGE: python problem1.py')

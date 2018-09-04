@@ -45,7 +45,6 @@ if __name__ == '__main__':
     odeint_sol = scipy.integrate.odeint(f, x0, T)
     plot_graphs_Q2(odeint_sol, T)
 
-
     # problem e.)
     #The model would be: dS/dt = -b*IS + d*I dI/dt = b*IS - (g+d)*I dR/dt = g*I
 
